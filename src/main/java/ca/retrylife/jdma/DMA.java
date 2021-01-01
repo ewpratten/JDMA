@@ -41,6 +41,25 @@ public class DMA {
         unsafe.copyMemory(src, dest, n);
     }
 
+    /**
+     * Copies a value onto the first n bytes of the object pointed to by dest
+     * 
+     * @param dest  Base address
+     * @param value Value
+     * @param n     Number of bytes to write
+     */
+    public static void memset(@Pointer long dest, byte value, long n) {
+        unsafe.setMemory(dest, n, value);
+    }
+
+    /**
+     * Compares the first N bytes of memory pointed to by A and B
+     * 
+     * @param a Addr A
+     * @param b Addr B
+     * @param n Number of bytes
+     * @return Negative if A<B, positive if B>A, else 0
+     */
     public static int memcmp(@Pointer long a, @Pointer long b, long n) {
         for (int i = 0; i < n; i++, a++, b++) {
             if (unsafe.getByte(a) < unsafe.getByte(b)) {
