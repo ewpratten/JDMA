@@ -3,6 +3,8 @@ plugins {
     id 'java-library'
 }
 
+apply from: "gradle_scripts/sensible.gradle"
+
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
