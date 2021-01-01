@@ -63,7 +63,7 @@ public class DMATest {
         @Pointer
         long set2 = malloc(5);
 
-        // Fill the arrays with values, ensuring set1<set2
+        // Fill the arrays with values, ensuring set1&lt;set2
         for (int i = 0; i < 5; i++) {
             poke(set1 + i, (byte) i);
         }

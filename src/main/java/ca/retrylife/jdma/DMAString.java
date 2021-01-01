@@ -2,6 +2,9 @@ package ca.retrylife.jdma;
 
 import ca.retrylife.jdma.annotations.Pointer;
 
+/**
+ * String DMA operations. Similar to "string.h"
+ */
 public class DMAString {
 
     /**

@@ -7,9 +7,16 @@ import java.util.HashSet;
 import ca.retrylife.jdma.annotations.Pointer;
 import sun.misc.Unsafe;
 
+/**
+ * A C-like Direct memory Access API
+ */
 public class DMA {
 
+    // Access to Unsafe
     private static final Unsafe unsafe = UnsafeAPI.get();
+
+    private DMA() {
+    }
 
     /**
      * Allocate SIZE bytes off-heap
@@ -58,7 +65,7 @@ public class DMA {
      * @param a Addr A
      * @param b Addr B
      * @param n Number of bytes
-     * @return Negative if A<B, positive if B>A, else 0
+     * @return Negative if A&lt;B, positive if B&gt;A, else 0
      */
     public static int memcmp(@Pointer long a, @Pointer long b, long n) {
         for (int i = 0; i < n; i++, a++, b++) {
