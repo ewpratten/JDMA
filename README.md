@@ -1,6 +1,6 @@
 # Direct Memory Access for Java [![Documentation](https://img.shields.io/badge/-documentation-blue)](https://ewpratten.retrylife.ca/JDMA) ![Build library](https://github.com/Ewpratten/JDMA/workflows/Build%20library/badge.svg)
 
-`jdma` is a Java library that provides c-like `malloc()` and `free()` functions, along with many others. All functions operate off-heap, meaning no need to deal with the garbage collector. This is useful when dealing with code that muse be efficient as possible.
+`jdma` is a Java library that provides c-like `malloc()` and `free()` functions, along with many others. All functions operate off-heap, meaning no need to deal with the garbage collector. This is useful when dealing with code that must be efficient as possible.
 
 ## Demo
 
