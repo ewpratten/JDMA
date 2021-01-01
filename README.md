@@ -45,9 +45,9 @@ repositories {
 
 ```groovy
 dependencies {
-    implementation 'ca.retrylife:JDMA:1.+'
-    implementation 'ca.retrylife:JDMA:1.+:sources'
-    implementation 'ca.retrylife:JDMA:1.+:javadoc'
+    implementation 'ca.retrylife:jdma:1.+'
+    implementation 'ca.retrylife:jdma:1.+:sources'
+    implementation 'ca.retrylife:jdma:1.+:javadoc'
 }
 ```
 
