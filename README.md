@@ -26,6 +26,9 @@ bytes = allocateString("Hello, world!");
 // Truths about the string
 assert strlen(bytes) == 13;
 assert toJavaString(bytes, strlen(bytes)).equals("Hello, world!");
+
+// Free the string
+free(bytes);
 ```
 
 ## Using in your project
