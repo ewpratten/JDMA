@@ -25,7 +25,7 @@ dependencies {
     testImplementation 'junit:junit:4.13'
 
     // LegalAccess
-    implementation 'ca.retrylife:legalaccess:1.0.3-rc1'
+    implementation 'ca.retrylife:legalaccess:1.0.3'
     implementation 'ca.retrylife:legalaccess:1.0.3-rc1:sources'
     implementation 'ca.retrylife:legalaccess:1.0.3-rc1:javadoc'
 }
