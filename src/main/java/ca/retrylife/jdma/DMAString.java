@@ -31,15 +31,34 @@ public class DMAString {
     }
 
     /**
+     * Get a portion of memory as a Java String
+     * 
+     * @param address Base address
+     * @param size    Number of characters to read
+     * @return Java String
+     */
+    public static String toJavaString(@Pointer long address, int size) {
+
+        // Get the dma string as a byte array
+        byte[] strBytes = DMA.getByteArray(address, size);
+
+        // Build a Java string
+        String output = new String(strBytes);
+
+        return output;
+    }
+
+    /**
      * Get the length of a DMA string
      * 
      * @param address Base address of string
      * @return Length in bytes
      */
     public static long strlen(@Pointer long address) {
+        // TODO: This wont play well with unicode
         long i = 0;
         while (true) {
-            if (address == (byte) '\0') {
+            if (DMA.peek(address) == (byte) '\0') {
                 return i;
             }
 

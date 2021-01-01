@@ -73,6 +73,25 @@ public class DMA {
     }
 
     /**
+     * Get a portion of memory as a byte array
+     * 
+     * @param address Base address
+     * @param size    Number of bytes to fetch
+     * @return Byte array
+     */
+    public static byte[] getByteArray(@Pointer long address, int size) {
+
+        // Allocate an array
+        byte[] output = new byte[size];
+
+        for (int i = 0; i < size; i++) {
+            output[i] = peek(address + i);
+        }
+
+        return output;
+    }
+
+    /**
      * Get the byte at an address
      * 
      * @param address Address
