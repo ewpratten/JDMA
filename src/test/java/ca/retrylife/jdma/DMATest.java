@@ -3,12 +3,25 @@ package ca.retrylife.jdma;
 import static ca.retrylife.jdma.DMA.*;
 import static ca.retrylife.jdma.DMAString.*;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
 
 import ca.retrylife.jdma.annotations.Pointer;
 
 public class DMATest {
+
+    @Test
+    public void testMalloc() {
+        
+        // Allocate a byte
+        @Pointer
+        long addr = malloc(1);
+
+        assertNotEquals("Address not NULL/0", 0, addr);
+
+        free(addr);
+    }
 
     // @Test
     // public void testMemcmp() {
