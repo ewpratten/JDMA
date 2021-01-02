@@ -5,6 +5,7 @@ import java.lang.reflect.Modifier;
 import java.util.HashSet;
 
 import ca.retrylife.jdma.annotations.Pointer;
+import ca.retrylife.jdma.util.Values;
 import sun.misc.Unsafe;
 
 /**
@@ -151,6 +152,102 @@ public class DMA {
 
         // Return the padded size
         return ((maxSize / 8) + 1) * 8;
+    }
+
+    /**
+     * Get the address of an object
+     * 
+     * @param obj Object
+     * @return Address
+     */
+    public static @Pointer long addressOf(Object obj) {
+        // Store the object in an array, then fetch the first element's base address
+        Object[] array = new Object[] { obj };
+        long baseOffset = unsafe.arrayBaseOffset(Object[].class);
+        return Values.intToULong(unsafe.getInt(array, baseOffset));
+    }
+
+    /**
+     * Get an Object by it's base address
+     * 
+     * @param address Address of object
+     * @return Object
+     */
+    public static Object getObjectByAddress(@Pointer long address) {
+        // Uses array base address to grab an object
+        Object[] array = new Object[] { null };
+        long baseOffset = unsafe.arrayBaseOffset(Object[].class);
+        unsafe.putLong(array, baseOffset, address);
+        return array[0];
+    }
+
+    /**
+     * Get an Object by it's base address
+     * 
+     * @param <T>     Object type
+     * @param address Address of object
+     * @param clazz   Class of the object
+     * @return Object
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> T getObjectByAddress(@Pointer long address, Class<T> clazz) {
+        return (T) getObjectByAddress(address);
+    }
+
+    public static byte readByte(@Pointer long address) {
+        return unsafe.getByte(address);
+    }
+
+    public static void writeByte(@Pointer long address, byte value) {
+        unsafe.putByte(address, value);
+    }
+
+    public static short readShort(@Pointer long address) {
+        return unsafe.getShort(address);
+    }
+
+    public static void writeShort(@Pointer long address, short value) {
+        unsafe.putShort(address, value);
+    }
+
+    public static char readChar(@Pointer long address) {
+        return unsafe.getChar(address);
+    }
+
+    public static void writeChar(@Pointer long address, char value) {
+        unsafe.putChar(address, value);
+    }
+
+    public static int readInt(@Pointer long address) {
+        return unsafe.getInt(address);
+    }
+
+    public static void writeInt(@Pointer long address, int value) {
+        unsafe.putInt(address, value);
+    }
+
+    public static long readLong(@Pointer long address) {
+        return unsafe.getLong(address);
+    }
+
+    public static void writeLong(@Pointer long address, long value) {
+        unsafe.putLong(address, value);
+    }
+
+    public static float readFloat(@Pointer long address) {
+        return unsafe.getFloat(address);
+    }
+
+    public static void writeFloat(@Pointer long address, float value) {
+        unsafe.putFloat(address, value);
+    }
+
+    public static double readDouble(@Pointer long address) {
+        return unsafe.getDouble(address);
+    }
+
+    public static void writeDouble(@Pointer long address, double value) {
+        unsafe.putDouble(address, value);
     }
 
 }

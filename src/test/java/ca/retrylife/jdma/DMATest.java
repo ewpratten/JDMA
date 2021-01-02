@@ -4,6 +4,7 @@ import static ca.retrylife.jdma.DMA.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -78,6 +79,25 @@ public class DMATest {
         free(set1);
         free(set2);
 
+    }
+
+    @Test
+    public void testObjectPointers() {
+
+        // Create an object
+        Object obj = "test";
+
+        // Get the address of the object
+        long obj_addr = addressOf(obj);
+
+        // Get another pointer to the same object
+        Object obj2 = getObjectByAddress(obj_addr);
+
+        // Ensure they are the same object
+        assertTrue("Objects equal", obj == obj2);
+        assertEquals(obj, obj2);
+
+        // obj is on the heap, so we can let GC clean it up here
     }
 
 }
