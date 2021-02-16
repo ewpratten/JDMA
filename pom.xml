@@ -10,8 +10,8 @@
     <repositories>
         <repository>
             <id>github</id>
-            <name>GitHub TobseF Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/ewpratten/legalaccess</url>
+            <name>retrylife-release</name>
+            <url>https://release.maven.retrylife.ca/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>

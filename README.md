@@ -38,11 +38,14 @@ free(bytes);
 
 ```groovy
 repositories {
-    maven { url 'https://gpr.retrylife.ca/ewpratten/JDMA' }
+    maven { 
+        name 'retrylife-release'
+        url 'https://release.maven.retrylife.ca/' 
+    }
 }
 ```
 
-**Step 1.** Add this library as a dependency:
+**Step 2.** Add this library as a dependency:
 
 ```groovy
 dependencies {
